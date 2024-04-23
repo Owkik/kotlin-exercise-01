@@ -45,24 +45,20 @@ fun <T : Comparable<T>> getMax(numbers: Array<T>): T? {
     return numbers.maxOrNull()
 }
 
-fun fibonacciSequence(n: Int): List<Int> {
-    val sequence = mutableListOf<Int>()
-
-    var counter = 0
-    var toAdd = 0
+fun fibonacciSequence(n: Int): Int {
+    var counter = 1
+    var currentNumber = 0
     var nextNumber = 1
 
     while (counter < n) {
-        sequence.add(toAdd)
-
-        val temp = toAdd + nextNumber
-        toAdd = nextNumber
+        val temp = currentNumber + nextNumber
+        currentNumber = nextNumber
         nextNumber = temp
 
         counter += 1
     }
 
-    return sequence
+    return currentNumber
 }
 
 fun isPalindrome(text: String): Boolean {
